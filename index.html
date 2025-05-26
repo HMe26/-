@@ -10,23 +10,41 @@
 </head>
 <body>
     <div class="container">
-        <header class="exam-header">
-            <h1> امتحان آداب المهنة</h1>
+        <!-- شاشة البداية -->
+        <div id="start-screen" class="start-screen">
+            <h1>امتحان آداب المهنة</h1>
             <h2>الفصل الدراسي الأول 2024/2025 - نموذج رقم (2)</h2>
-            <div class="timer" id="timer">الوقت المتبقي: <span>120:00</span></div>
-        </header>
-        <main id="quiz-container">
-            <div id="progress-bar">
-                <div class="progress"></div>
+            <div class="instructions">
+                <h3>تعليمات الامتحان:</h3>
+                <ul>
+                    <li>مدة الامتحان ساعتين</li>
+                    <li>لا يمكن العودة للامتحان بعد إغلاق الصفحة</li>
+                    <li>يجب الإجابة على جميع الأسئلة</li>
+                </ul>
             </div>
-            <div id="question-area"></div>
-            <div class="controls">
-                <button id="prev-btn" class="nav-btn" disabled><i class="fas fa-arrow-right"></i> السابق</button>
-                <button id="next-btn" class="nav-btn">التالي <i class="fas fa-arrow-left"></i></button>
-                <button id="submit-btn" class="submit-btn" style="display: none;">إرسال الإجابات</button>
-            </div>
-        </main>
-        <div id="results-area" class="results-container"></div>
+            <button id="start-exam" class="start-btn">بدء الامتحان</button>
+        </div>
+
+        <!-- شاشة الامتحان -->
+        <div id="exam-screen" class="exam-screen" style="display: none;">
+            <header class="exam-header">
+                <h1>امتحان آداب المهنة</h1>
+                <h2>الفصل الدراسي الأول 2024/2025 - نموذج رقم (2)</h2>
+                <div class="timer" id="timer">الوقت المتبقي: <span>120:00</span></div>
+            </header>
+            <main id="quiz-container">
+                <div id="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div id="question-area"></div>
+                <div class="controls">
+                    <button id="prev-btn" class="nav-btn" disabled><i class="fas fa-arrow-right"></i> السابق</button>
+                    <button id="next-btn" class="nav-btn">التالي <i class="fas fa-arrow-left"></i></button>
+                    <button id="submit-btn" class="submit-btn" style="display: none;">إرسال الإجابات</button>
+                </div>
+            </main>
+            <div id="results-area" class="results-container"></div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

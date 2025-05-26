@@ -422,3 +422,46 @@ document.addEventListener('DOMContentLoaded', () => {
     showQuestion(0);
     startTimer();
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const startScreen = document.getElementById('start-screen');
+    const examScreen = document.getElementById('exam-screen');
+    const startButton = document.getElementById('start-exam');
+    let timerStarted = false;
+
+    // إخفاء شاشة الامتحان في البداية
+    examScreen.style.display = 'none';
+
+    // عند الضغط على زر بدء الامتحان
+    startButton.addEventListener('click', () => {
+        startScreen.style.display = 'none';
+        examScreen.style.display = 'block';
+        if (!timerStarted) {
+            startTimer();
+            timerStarted = true;
+        }
+        initializeQuiz();
+    });
+
+    function startTimer() {
+        const timerDisplay = document.querySelector('#timer span');
+        let timeLeft = 120 * 60; // 120 minutes in seconds
+
+        timer = setInterval(() => {
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                submitQuiz();
+            }
+        }, 1000);
+    }
+
+    function initializeQuiz() {
+        // ... existing quiz initialization code ...
+    }
+});
